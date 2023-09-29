@@ -3,6 +3,7 @@ name: Create Hello World File
 on:
   schedule:
     - cron: '10 12 * * 5'  # This will run at 12:10 every Friday
+    workflow_dispatch:
   
 jobs:
   build:
