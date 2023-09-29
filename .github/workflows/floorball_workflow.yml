@@ -1,7 +1,7 @@
 name: Delete Data Folder
 
 on:
-  #workflow_dispatch: # Allows manual trigger
+  workflow_dispatch: # Allows manual trigger
   schedule:
     - cron: '05 13 * * 5' # Scheduled for 12:10 every Friday
 
