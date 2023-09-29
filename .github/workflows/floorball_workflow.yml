@@ -1,0 +1,38 @@
+name: Delete Files and Send Email
+
+on:
+  schedule:
+    - cron: '22 12 * * 5' # Runs at 12:20 UTC every Friday
+
+#    In cron syntax, the schedule is defined using five fields separated by a space, representing (in order from left to right):
+#Minute (0 - 59)
+#Hour (0 - 23, UTC)
+#Day of the month (1 - 31)
+#Month (1 - 12)
+#Day of the week (0 - 6, where 0 is Sunday and 6 is Saturday)
+
+jobs:
+  delete-and-notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Delete Files
+        run: |
+          rm -f ../../data/Bor_Vratanar.csv
+          # Add commands to delete other files as needed
+        shell: bash
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git commit -m "Delete files"
+          git push
+          
+#      - name: Send Email Notification
+#        run: |
+#          # Here, you can call a script to send an email or use a CLI tool
+#          echo "Files deleted successfully" | mail -s "Notification: Files Deleted" example@example.com
