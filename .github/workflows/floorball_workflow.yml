@@ -2,7 +2,7 @@ name: Delete Files and Send Email
 
 on:
   schedule:
-    - cron: '27 12 * * 5' # Runs at 12:20 UTC every Friday
+    - cron: '30 12 * * 5' # Runs at 12:20 UTC every Friday
 
 #    In cron syntax, the schedule is defined using five fields separated by a space, representing (in order from left to right):
 #Minute (0 - 59)
@@ -20,7 +20,7 @@ jobs:
       
       - name: Delete Files
         run: |
-          rm -f ../../data/Bor_Vratanar.csv
+          rm -f ../../../data/Bor_Vratanar.csv
           # Add commands to delete other files as needed
         shell: bash
 
