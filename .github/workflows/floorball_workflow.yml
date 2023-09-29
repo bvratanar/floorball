@@ -5,8 +5,8 @@ on:
   workflow_dispatch: # Allows manual trigger
   schedule:
     - cron: '10 12 * * 5' # Scheduled for 12:10 every Friday
- #   permissions:
- # contents: write
+    permissions:
+  contents: write
   
 jobs:
   build:
