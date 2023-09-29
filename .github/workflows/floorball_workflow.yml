@@ -1,1 +1,28 @@
 
+name: Create Hello World File
+
+on:
+  workflow_dispatch: # Allows manual trigger
+  schedule:
+    - cron: '10 12 * * 5' # Scheduled for 12:10 every Friday
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Create Hello World file
+      run: echo "Hello, World!" > hello_world.txt
+      
+    - name: Commit and push
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add hello_world.txt
+        git commit -m "Add Hello World file"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
