@@ -2,7 +2,7 @@ name: Create Hello World File
 
 on:
   schedule:
-    - cron: '55 10 * * 5' # Runs at 10:40 UTC every Friday
+    - cron: '00 11 * * 5' # Runs at 10:40 UTC every Friday
   workflow_dispatch:
 
 jobs:
@@ -22,4 +22,4 @@ jobs:
         git config --local user.name "GitHub Action"
         git add hello_world.txt
         git commit -m "Add Hello World file"
-        git push https://${{ secrets.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 }}@github.com/$GITHUB_REPOSITORY.git ${{ github.ref }}
+        git push https://${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY.git ${{ github.ref }}
