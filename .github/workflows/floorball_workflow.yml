@@ -1,12 +1,12 @@
-
 name: Create Hello World File
 
 on:
   workflow_dispatch: # Allows manual trigger
   schedule:
     - cron: '10 12 * * 5' # Scheduled for 12:10 every Friday
-    permissions:
-  contents: write
+
+permissions:
+  contents: write # This workflow has write permissions to the repository contents
   
 jobs:
   build:
@@ -26,5 +26,3 @@ jobs:
         git add hello_world.txt
         git commit -m "Add Hello World file"
         git push
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
