@@ -3,7 +3,7 @@ name: Delete Data Folder
 on:
   workflow_dispatch: # Allows manual trigger
   schedule:
-    - cron: '10 12 * * 5' # Scheduled for 12:10 every Friday
+    - cron: '55 12 * * 5' # Scheduled for 12:10 every Friday
 
 permissions:
   contents: write # This workflow has write permissions to the repository contents
