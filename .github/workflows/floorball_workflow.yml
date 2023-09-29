@@ -1,4 +1,4 @@
-name: Delete File
+name: Delete Data Folder
 
 on:
   workflow_dispatch: # Allows manual trigger
@@ -16,13 +16,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
       
-    - name: Delete file
+    - name: Delete data folder if exists
       run: |
-        rm data/Bor_Vratanar.csv
+        [ -d data ] && rm -r data
       
-    - name: Commit and push
+    - name: Commit and push if there are changes
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git commit -am "Delete example.txt file"
-        git push
+        git diff --exit-code || (git commit -am "Delete data folder" && git push)
