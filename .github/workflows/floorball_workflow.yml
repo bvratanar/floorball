@@ -22,3 +22,5 @@ jobs:
         git add hello_world.txt
         git commit -m "Add Hello World file"
         git push
+        env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
