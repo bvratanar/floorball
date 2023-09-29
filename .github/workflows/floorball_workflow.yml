@@ -1,4 +1,4 @@
-name: Create Hello World File
+name: Delete File
 
 on:
   workflow_dispatch: # Allows manual trigger
@@ -16,13 +16,13 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
       
-    - name: Create Hello World file
-      run: echo "Hello, World!" > hello_world.txt
+    - name: Delete file
+      run: |
+        rm data/Bor_Vratanar.csv
       
     - name: Commit and push
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add hello_world.txt
-        git commit -m "Add Hello World file"
+        git commit -am "Delete example.txt file"
         git push
