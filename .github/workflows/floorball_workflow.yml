@@ -2,7 +2,7 @@ name: Create Hello World File
 
 on:
   schedule:
-    - cron: '41 10 * * 5' # Runs at 10:40 UTC every Friday
+    - cron: '55 10 * * 5' # Runs at 10:40 UTC every Friday
 
 jobs:
   create-file:
